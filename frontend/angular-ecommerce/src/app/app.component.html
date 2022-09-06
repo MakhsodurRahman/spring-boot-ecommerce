@@ -1,30 +1,19 @@
 <div class="page-wrapper">
-
   <!-- MENU SIDEBAR-->
   <aside class="menu-sidebar d-none d-lg-block">
     <div class="logo">
       <a href="#">
-        <img src="assets/images/logo.png" alt="ecommerce" class="img-responsive">
+        <img
+          src="assets/images/logo.png"
+          alt="ecommerce"
+          class="img-responsive"
+        />
       </a>
     </div>
-    <div class="menu-sidebar-content js-scrollbar1">
-      <nav class="navbar-sidebar">
-        <ul class="list-unstyled navbar-list">
-          <li>
-            <a routerLink="/category/1" routerLinkActive="active-link">Books</a>
-          </li>
-          <li>
-            <a routerLink="/category/2" routerLinkActive="active-link">Coffee Mugs</a>
-          </li>
-          <li>
-            <a routerLink="/category/3" routerLinkActive="active-link">Mouse Pads</a>
-          </li>
-          <li>
-            <a routerLink="/category/4" routerLinkActive="active-link">Luggage Tags</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
+
+    <app-product-category-menu></app-product-category-menu>
+    
+    
   </aside>
   <!-- END MENU SIDEBAR-->
 
@@ -35,14 +24,18 @@
         <div class="container-fluid">
           <div class="header-wrap">
             <form class="form-header" onsubmit="return false;" method="GET">
-              <input class="au-input au-input-xl" type="text" name="search" placeholder="Search for data ..." />
-              <button class="au-btn-submit" type="submit">
-                Search
-              </button>
+              <input
+                class="au-input au-input-xl"
+                type="text"
+                name="search"
+                placeholder="Search for data ..."
+              />
+              <button class="au-btn-submit" type="submit">Search</button>
             </form>
             <div class="cart-area d-n">
               <a href="shopping-detail.html">
-                <div class="total">19.22 <span> 2</span> </div> <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                <div class="total">19.22 <span> 2</span></div>
+                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
               </a>
             </div>
           </div>
@@ -55,7 +48,6 @@
     <!-- MAIN CONTENT-->
     <router-outlet></router-outlet>
     <!-- <app-product-list></app-product-list> -->
-
   </div>
 </div>
 
