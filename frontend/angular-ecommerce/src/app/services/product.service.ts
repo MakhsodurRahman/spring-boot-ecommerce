@@ -27,12 +27,24 @@ export class ProductService {
     return this.getProducts(searchUrl);
   }
 
+  //for pagination support
+  getProductListPaginate( thePage:number,
+                          thePageSize:number,
+                          theCategoryId:number): Observable<GetResponseProducts> {
+
+    // need to build URL based on category id ,page & page size
+    const searchUrl = `${this.baseUrl}/search/findByCategoryId?id=${theCategoryId}`
+    + `&page=${thePage}&size=${thePageSize}`;
+    return this.httpClient.get<GetResponseProducts>(searchUrl);
+  }
+
   getProductCategories(): Observable<ProductCategory[]> {
     return this.httpClient.get<GetResponseProductCategory>(this.categoryUrl).pipe(
       map(response => response._embedded.productCategory)
     );
   }
 
+  //support for searching
   searchProducts(theKeyword: string | null): Observable<Product[]> {
 
     const searchUrl = `${this.baseUrl}/search/findByNameContaining?name=${theKeyword}`;
@@ -56,6 +68,13 @@ export class ProductService {
 interface GetResponseProducts {
   _embedded: {
     products: Product[];
+  },
+  //for pagination support
+  page:{
+    size: number;
+    totalElements: number;
+    totalPages: number;
+    number: number;
   }
 }
 
